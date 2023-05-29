@@ -31,6 +31,13 @@ module.exports = function (config) {
       // webpack configuration
       devtool: 'inline-source-map',
       mode: 'development',
+      plugins: [
+        new Dotenv({
+          path: path.resolve(__dirname, '.env'),
+          systemvars: true,
+          safe: true,
+        }),
+      ],
     },
 
     webpackMiddleware: {
@@ -60,11 +67,11 @@ module.exports = function (config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['ChromeHeadless'],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
+    singleRun: true,
 
     // Concurrency level
     // how many browser should be started simultaneous
