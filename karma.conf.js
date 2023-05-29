@@ -31,6 +31,13 @@ module.exports = function (config) {
       // webpack configuration
       devtool: 'inline-source-map',
       mode: 'development',
+      plugins: [
+        new Dotenv({
+          path: path.resolve(__dirname, '.env'),
+          systemvars: true,
+          safe: true,
+        }),
+      ],
     },
 
     webpackMiddleware: {
